@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ps3joy)
 
 find_package(PkgConfig REQUIRED)
-pkg_search_module(LIBUSB REQUIRED libusb)
+pkg_search_module(LIBUSB REQUIRED libusb-1.0)
 
 if(LIBUSB_FOUND)
   include_directories(SYSTEM ${LIBUSB_INCLUDE_DIRS})
