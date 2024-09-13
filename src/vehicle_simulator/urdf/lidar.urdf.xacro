@@ -8,4 +8,58 @@
     <origin xyz="0 0 -0.2" rpy="0 0 0" />
   </joint>
 
+  <!-- Add IMU, as livox simulation on gazebo doesn't provide imu data, However in real life we also have IMU data -->
+  <!--imu -->
+  <link name="imu_base_link">
+      <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry >
+          <box size="0.03 0.03 0.03" />
+      </geometry>
+      </visual>
+      <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry >
+          <box size="0.03 0.03 0.03" />
+      </geometry>
+      </collision>   
+      <inertial>
+          <mass value="0.001"/>
+          <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      </inertial> 
+  </link>
+
+  <gazebo reference="imu_base_link">
+      <material>Gazebo/Green</material>
+      <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+  <joint name="imu_platform_joint" type="fixed">
+      <parent link="lidar"/>
+      <child link="imu_base_link"/>
+      <origin xyz="0.05 0 0.065" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+  </joint>
+
+    <gazebo reference="imu_base_link">
+      <gravity>true</gravity>
+      <sensor name="imu_sensor" type="imu">
+          <always_on>true</always_on>
+          <update_rate>200</update_rate>
+          <visualize>true</visualize>
+          <topic>/livox/imu</topic>
+          <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+              <topicName>/livox/imu</topicName>         
+              <bodyName>imu_base_link</bodyName>
+              <updateRateHZ>200.0</updateRateHZ>    
+              <gaussianNoise>0.00329</gaussianNoise>   
+              <xyzOffset>0 0 0</xyzOffset>     
+              <rpyOffset>0 0 0</rpyOffset>
+              <frameName>imu_base_link</frameName>        
+          </plugin>
+          <pose>0 0 0 0 0 0</pose>
+      </sensor>
+  </gazebo>
+
+
 </robot>
