@@ -56,7 +56,7 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <gravity>0 0 0</gravity>
+    <gravity>0 0 -9.8</gravity>
     <magnetic_field>0 0 0</magnetic_field>
     <atmosphere type='adiabatic'/>
     <model name='map'>

@@ -10,6 +10,8 @@ install
 
 .DS_Store
 
+src/segmentation_proc/scripts/extracted_scene/*
+
 src/vehicle_simulator/mesh/*
 
 !src/vehicle_simulator/mesh/matterport

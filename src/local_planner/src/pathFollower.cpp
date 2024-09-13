@@ -13,6 +13,7 @@
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/TwistStamped.h>
+#include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/Joy.h>
@@ -332,8 +333,11 @@ int main(int argc, char** argv)
       pubSkipCount--;
       if (pubSkipCount < 0) {
         cmd_vel.header.stamp = ros::Time().fromSec(odomTime);
-        if (fabs(vehicleSpeed) <= maxAccel / 100.0) cmd_vel.twist.linear.x = 0;
-        else cmd_vel.twist.linear.x = vehicleSpeed;
+        if (fabs(vehicleSpeed) <= maxAccel / 100.0) {
+          cmd_vel.twist.linear.x = 0;
+        } else {
+          cmd_vel.twist.linear.x = vehicleSpeed;
+        }
         cmd_vel.twist.angular.z = vehicleYawRate;
         pubSpeed.publish(cmd_vel);
 

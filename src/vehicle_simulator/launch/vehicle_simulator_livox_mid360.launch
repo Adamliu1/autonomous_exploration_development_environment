@@ -45,13 +45,13 @@
   <param name="rgbd_camera_description" command="$(find xacro)/xacro --inorder '$(find vehicle_simulator)/urdf/rgbd_camera.urdf.xacro'" />
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_rgbd_camera" args="-urdf -param /rgbd_camera_description -model rgbd_camera"/>
 
-  <param name="lidar_description" command="$(find xacro)/xacro --inorder '$(find vehicle_simulator)/urdf/lidar.urdf_vlp16.xacro'" />
+  <param name="lidar_description" command="$(find xacro)/xacro --inorder '$(find vehicle_simulator)/urdf/lidar.urdf.xacro'" />
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_lidar" args="-urdf -param /lidar_description -model lidar"/>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find vehicle_simulator)/urdf/robot.urdf.xacro'" />
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" args="-urdf -param /robot_description -model robot"/>
 
-  <node pkg="vehicle_simulator" type="vehicleSimulator" name="vehicleSimulator" output="screen" required="true">
+  <node pkg="vehicle_simulator" type="vehicleSimulatorLivox" name="vehicleSimulator" output="screen" required="true">
     <param name="use_gazebo_time" type="bool" value="false" />
     <param name="sensorOffsetX" value="$(arg sensorOffsetX)" />
     <param name="sensorOffsetY" value="$(arg sensorOffsetY)" />

@@ -52,11 +52,29 @@ link_directories(
 
 ## Declare executables
 add_executable(vehicleSimulator src/vehicleSimulator.cpp)
+add_executable(vehicleSimulatorHusky src/vehicleSimulatorHusky.cpp)
+add_executable(vehicleSimulatorLivox src/vehicleSimulatorLivox.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(vehicleSimulator ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
 
 install(TARGETS vehicleSimulator
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+target_link_libraries(vehicleSimulatorHusky ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
+
+install(TARGETS vehicleSimulatorHusky
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+target_link_libraries(vehicleSimulatorLivox ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
+
+install(TARGETS vehicleSimulatorLivox
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

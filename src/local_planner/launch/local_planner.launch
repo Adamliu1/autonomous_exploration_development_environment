@@ -88,4 +88,6 @@
 
   <node pkg="tf" type="static_transform_publisher" name="sensorTransPublisher" args="0 0 $(arg cameraOffsetZ) -1.5707963 0 -1.5707963 /sensor /rgbd_camera 1000"/>
 
+  <node pkg="tf" type="static_transform_publisher" name="livoxTransPublisher" args="0 0 0 0 0 0 /sensor /livox 1000"/>
+
 </launch>

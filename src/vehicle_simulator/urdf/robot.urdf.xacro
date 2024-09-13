@@ -33,7 +33,7 @@
     <child link="base_link"/>
   </joint>
 
-  <link name="lidar_holder">
+  <!-- <link name="lidar_holder">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -52,7 +52,7 @@
     <origin xyz="0.0 0 -0.175" rpy="0 0 0"/>
     <parent link="base_origin"/>
     <child link="lidar_holder"/>
-  </joint>
+  </joint> -->
 
   <link name="left_front_wheel">
     <visual>
