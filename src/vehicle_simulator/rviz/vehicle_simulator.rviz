@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /RegScan1
       Splitter Ratio: 0.47385621070861816
     Tree Height: 817
   - Class: rviz/Selection
@@ -100,7 +101,7 @@ Visualization Manager:
       Channel Name: z
       Class: rviz/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: Intensity
+      Color Transformer: FlatColor
       Decay Time: 10
       Enabled: true
       Invert Rainbow: false
@@ -451,6 +452,10 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        body:
+          Value: true
+        camera_init:
+          Value: true
         livox:
           Value: true
         map:
@@ -470,6 +475,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
+        camera_init:
+          body:
+            {}
         map:
           sensor:
             livox:
@@ -499,7 +507,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: false
+      Enabled: true
       Keep: 100
       Name: Odometry
       Position Tolerance: 0.10000000149011612
@@ -516,7 +524,7 @@ Visualization Manager:
         Value: Arrow
       Topic: /state_estimation
       Unreliable: false
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -560,7 +568,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 29.06282615661621
+      Distance: 19.239208221435547
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -568,17 +576,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.5909216403961182
-        Y: -2.5113000869750977
-        Z: 3.2649168968200684
+        X: 2.6605091094970703
+        Y: 0.043429046869277954
+        Z: 5.527177810668945
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8847971558570862
+      Pitch: 0.7547972202301025
       Target Frame: vehicle
-      Yaw: 4.367312908172607
+      Yaw: 2.777310848236084
     Saved: ~
 Window Geometry:
   DepthImage:
@@ -607,4 +615,4 @@ Window Geometry:
     collapsed: false
   Width: 1962
   X: 94
-  Y: 210
+  Y: 136
