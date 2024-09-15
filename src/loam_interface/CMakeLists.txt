@@ -50,11 +50,19 @@ link_directories(
 
 ## Declare executables
 add_executable(loamInterface src/loamInterface.cpp)
+add_executable(loamInterfaceHusky src/loamInterfaceHusky.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(loamInterface ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(loamInterfaceHusky ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 install(TARGETS loamInterface
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS loamInterfaceHusky
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

@@ -51,10 +51,14 @@ link_directories(
 ## Declare executables
 add_executable(localPlanner src/localPlanner.cpp)
 add_executable(pathFollower src/pathFollower.cpp)
+add_executable(localPlannerHusky src/localPlannerHusky.cpp)
+add_executable(pathFollowerHusky src/pathFollowerHusky.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(localPlanner ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 target_link_libraries(pathFollower ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(localPlannerHusky ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(pathFollowerHusky ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 install(TARGETS localPlanner pathFollower
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

@@ -5,16 +5,16 @@
   <arg name="twoWayDrive" default="false"/>
   <arg name="maxSpeed" default="1.0"/>
   <arg name="cameraOffsetZ" default="0"/>
-  <arg name="autonomyMode" default="true"/>
+  <arg name="autonomyMode" default="false"/>
   <arg name="autonomySpeed" default="1.0"/>
   <arg name="joyToSpeedDelay" default="2.0"/>
   <arg name="goalX" default="0"/>
   <arg name="goalY" default="0"/>
 
-  <node pkg="local_planner" type="localPlanner" name="localPlanner" output="screen" required="true">
+  <node pkg="local_planner" type="localPlannerHusky" name="localPlanner" output="screen" required="true">
     <param name="pathFolder" type="string" value="$(find local_planner)/paths" />
-    <param name="vehicleLength" type="double" value="0.6" />
-    <param name="vehicleWidth" type="double" value="0.6" />
+    <param name="vehicleLength" type="double" value="0.99" />
+    <param name="vehicleWidth" type="double" value="0.67" />
     <param name="sensorOffsetX" value="$(arg sensorOffsetX)" />
     <param name="sensorOffsetY" value="$(arg sensorOffsetY)" />
     <param name="twoWayDrive" value="$(arg twoWayDrive)" />
@@ -53,17 +53,20 @@
     <param name="goalY" type="double" value="$(arg goalY)" />
   </node>
 
-  <node pkg="local_planner" type="pathFollower" name="pathFollower" output="screen" required="true">
+  <node pkg="local_planner" type="pathFollowerHusky" name="pathFollower" output="screen" required="true">
     <param name="sensorOffsetX" value="$(arg sensorOffsetX)" />
     <param name="sensorOffsetY" value="$(arg sensorOffsetY)" />
     <param name="pubSkipNum" type="int" value="1" />
     <param name="twoWayDrive" value="$(arg twoWayDrive)" />
     <param name="lookAheadDis" type="double" value="0.5" />
-    <param name="yawRateGain" type="double" value="7.5" />
-    <param name="stopYawRateGain" type="double" value="7.5" />
+    <!-- <param name="yawRateGain" type="double" value="7.5" /> -->
+    <!-- <param name="stopYawRateGain" type="double" value="7.5" /> -->
+    <param name="yawRateGain" type="double" value="1.25" />
+    <param name="stopYawRateGain" type="double" value="1.25" />
     <param name="maxYawRate" type="double" value="90.0" />
     <param name="maxSpeed" value="$(arg maxSpeed)" />
-    <param name="maxAccel" type="double" value="2.5" />
+    <!-- <param name="maxAccel" type="double" value="2.5" /> -->
+    <param name="maxAccel" type="double" value="2" />
     <param name="switchTimeThre" type="double" value="1.0" />
     <param name="dirDiffThre" type="double" value="0.1" />
     <param name="stopDisThre" type="double" value="0.2" />
